@@ -1,4 +1,4 @@
-const ws = new WebSocket("ws://k-slash-place.deno.dev");
+const ws = new WebSocket("wss://k-slash-place.deno.dev");
 
 const colors = ["white", "black", "blue", "red", "yellow", "green"];
 const colorDiv = document.querySelector(".colors");
