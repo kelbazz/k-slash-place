@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>K/Place</title>
+</head>
+
+<body>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      font-family: 'Courier New', Courier, monospace;
+      background-color: #333;
+      color: #fff;
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .mouse-pos,
+    .timer {
+      z-index: 10;
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      color: #fff;
+      mix-blend-mode: exclusion;
+    }
+
+    .timer {
+      left: auto;
+      right: 5px;
+    }
+
+    .canva {
+      border: 1px solid #33333380;
+      line-height: 0;
+      min-width: max-content;
+      min-height: max-content;
+      transform: translate(var(--tile-x), var(--tile-y));
+    }
+
+    .canva-overlay {
+      position: relative;
+      cursor: grab;
+      border: 1px solid #fff;
+      background-color: #fff;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+    }
+
+    .colors {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .tile {
+      cursor: cell;
+      transition: all .1s ease-in-out;
+      border: 1px solid #33333380;
+      display: inline-block;
+      padding: calc(var(--tile-size) / 2);
+    }
+
+    .tile:hover {
+      transform: scale(1.2) rotate(5deg);
+      border: 1px solid #09f;
+    }
+
+    .current-color {
+      transform: scale(1.2) rotate(5deg);
+    }
+  </style>
+  <div class="canva-overlay">
+    <span class="mouse-pos">x,y</span>
+    <span class="timer">Ready</span>
+
+    <div class="canva">
+
+    </div>
+    <div class="colors"></div>
+  </div>
+
+  <script defer src="index.js"></script>
+</body>
+
+</html>
